@@ -123,7 +123,7 @@
       <button class="button" id="draw-lottery-btn" onclick="drawLottery()" disabled>进行抽奖</button>
       <button class="button" onclick="exchangeCoins()">兑换活动币</button>
       <button class="button" onclick="viewRecords()">查看记录</button>
-      <button class="button" onclick="resetData()">重置数据</button>
+      <!-- <button class="button" onclick="resetData()">重置数据</button> -->
     </div>
 
     <!-- 抽奖规则 -->
@@ -148,12 +148,13 @@
         <li><strong>Lv1：</strong>60%获得100币，25%获得200币，14%获得300币，1%获得1000币</li>
         <li><strong>Lv2：</strong>55%获得100币，29%获得200币，14%获得300币，2%获得1000币</li>
         <li><strong>Lv3：</strong>54%获得100币，29%获得200币，14%获得300币，2%获得1000币，1%获得3000币</li>
+        <li><strong>Lv4：</strong>83%获得200币，14%获得300币，2%获得1000币，1%获得3000币</li>
       </ul>
       <p>累计活动币升级规则：</p>
       <ul>
         <li>2000币升级Lv2</li>
-        <li>10000币升级Lv3</li>
-        <li>30000币升级Lv4</li>
+        <li>5000币升级Lv3</li>
+        <li>20000币升级Lv4</li>
       </ul>
     </div>
 
@@ -165,6 +166,7 @@
         <li>5000活动币：冰火楼/LR</li>
         <li>5000活动币：一晚上LOL</li>
         <li>5000活动币：随意外食一顿</li>
+        <li>80000活动币：33</li>
       </ul>
     </div>
 
@@ -270,6 +272,11 @@
         else if (random <= 97) coinsWon = 300;
         else if (random <= 99) coinsWon = 1000;
         else coinsWon = 3000;
+      } else {
+        if (random <= 83) coinsWon = 200;
+        else if (random <= 97) coinsWon = 300;
+        else if (random <= 99) coinsWon = 1000;
+        else coinsWon = 3000;
       }
 
       data.currentCoins += coinsWon;
@@ -327,9 +334,9 @@
 
     // 检查等级升级
     function checkLevelUpgrade() {
-      if (data.currentCoins >= 30000) {
+      if (data.currentCoins >= 20000) {
         data.currentLevel = "Lv4";
-      } else if (data.currentCoins >= 10000) {
+      } else if (data.currentCoins >= 5000) {
         data.currentLevel = "Lv3";
       } else if (data.currentCoins >= 2000) {
         data.currentLevel = "Lv2";
